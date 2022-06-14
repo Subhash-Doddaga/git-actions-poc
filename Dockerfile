@@ -1,4 +1,9 @@
-# Basic nginx dockerfile starting with Ubuntu 20.04
-FROM ubuntu:20.04
-RUN apt-get -y update
-RUN apt-get -y install nginx
+FROM node:10.4.3
+WORKDIR /usr/src/app
+COPY package*.json ./
+ADD package.json /usr/src/app/package.json
+RUN npm install
+RUN npm install react-scripts@1.1.0 -g
+COPY . .
+EXPOSE 3000
+CMD ["npm ","start"];
