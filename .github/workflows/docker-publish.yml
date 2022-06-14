@@ -17,10 +17,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Push to Docker Hub
-        uses: mr-smithers-excellent/docker-build-push@v5
+        uses: docker/build-push-action@v2
         with:
-          image: slmsedu/slms-root
-          registry: docker.io
+          repository: slmsedu/slms-root
+          tags: latest, ${{ github.run_number }}
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
