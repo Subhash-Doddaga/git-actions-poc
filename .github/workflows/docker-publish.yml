@@ -28,11 +28,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Push to Docker Hub
-        uses: docker/build-push-action@v2
+        uses: mr-smithers-excellent/docker-build-push@v5
         with:
+          image: slmsedu/slms-root
+          registry: docker.io
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_PASSWORD }}
-          repository: msusdev/webnext
-          tags: latest, ${{ github.run_number }}
       
 
